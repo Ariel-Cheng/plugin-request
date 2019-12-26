@@ -4,4 +4,4 @@ tnpm i  && tnpm i umi@latest
 
 cd example
 
-tnpx run dev
+tnpx umi dev
