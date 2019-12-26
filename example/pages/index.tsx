@@ -5,12 +5,25 @@ async function testRequest({ showType }) {
   await request(`/api/users/failure?showType=${showType}`);
 }
 
+async function testOPPostRequest() {
+  await request('/api.json', {
+    method: "POST",
+    data: {
+      "action": "sofa.mq.middleware.instance.get",
+      "product": "mq",
+      "version": "2.0",
+      "params": { "curr_tenant": "ORGJC1CN", "curr_workspace": "luvwyllaTest" }
+    }
+  });
+}
+
 export default () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     (async () => {
       const { data: users } = await request(`/api/users`);
+      await testOPPostRequest();
       setUsers(users);
     })();
   }, []);

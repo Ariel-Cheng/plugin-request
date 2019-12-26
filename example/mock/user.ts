@@ -14,4 +14,11 @@ export default {
       showType: req.query.showType,
     }));
   },
+  'POST /api.json': {
+    success: true,
+    data: [
+      'pigcan',
+      'sorrycc',
+    ],
+  },
 }
